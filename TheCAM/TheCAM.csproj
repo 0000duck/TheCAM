@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{54982916-4ED3-4C0B-A09A-612BD5D14EB8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheCAM</RootNamespace>
+    <AssemblyName>TheCAM</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ExpressionBlendVersion>12.0.50716.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Controls.Ribbon">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xceed.Wpf.AvalonDock">
+      <HintPath>..\packages\AvalonDock.2.0.2000\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero">
+      <HintPath>..\packages\AvalonDock.2.0.2000\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="TheCommands.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Simple Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\new32.png" />
+    <Resource Include="Images\open32.png" />
+    <Resource Include="Images\save32.png" />
+    <Resource Include="Images\saveas32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnyCAD.CAM.Data\AnyCAD.CAM.Data.csproj">
+      <Project>{436b905d-0282-4b47-bc0e-e8062e027c18}</Project>
+      <Name>AnyCAD.CAM.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AnyCAD.CAM.UI\AnyCAD.CAM.UI.csproj">
+      <Project>{ba89f20c-a162-4946-a6eb-c083d391dc43}</Project>
+      <Name>AnyCAD.CAM.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AnyCAD.CAM.View\AnyCAD.CAM.View.csproj">
+      <Project>{e73d62a4-9e5d-4785-b7d7-834633e624a1}</Project>
+      <Name>AnyCAD.CAM.View</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Start\LoadDXF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Project\Tool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Work\Arc.png" />
+    <Resource Include="Images\Work\Groove.png" />
+    <Resource Include="Images\Work\Hole.png" />
+    <Resource Include="Images\Work\Key.png" />
+    <Resource Include="Images\Work\Rectangle.png" />
+    <Resource Include="Images\Work\SlottedHole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Work\CenterPoint.png" />
+    <Resource Include="Images\Work\EdgePoint.png" />
+    <Resource Include="Images\Work\MiddlePoint.png" />
+    <Resource Include="Images\Work\Pick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Style\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Start\3D.png" />
+    <Resource Include="Images\Start\WH.png" />
+    <Resource Include="Images\Start\XH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Start\ZoomToFit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Project\Bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Start\ABottom.png" />
+    <Resource Include="Images\Start\AEnd.png" />
+    <Resource Include="Images\Start\ALeft.png" />
+    <Resource Include="Images\Start\AMid.png" />
+    <Resource Include="Images\Start\ARight.png" />
+    <Resource Include="Images\Start\AStart.png" />
+    <Resource Include="Images\Start\ATop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Start\SectionLarge.png" />
+    <Resource Include="Images\Start\SectionSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Start\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Start\ZoomIn.png" />
+    <Resource Include="Images\Start\ZoomOut.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="TheCAM.TaskStepDrill"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignWidth="200" Height="202">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                <Label Content="刀具："/>
+                <ComboBox x:Name="drillList" Width="150" SelectionChanged="drillList_SelectionChanged" SelectedValuePath="Name" DisplayMemberPath="Name"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                <Label Content="旋转速度："/>
+                <TextBox Width="70" Height="20">
+                    <Binding Path="RotationSpeed">
+                        <Binding.ValidationRules>
+                            <ExceptionValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <Label Content="rev/min"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                <Label Content="给进速度："/>
+                <TextBox Width="70" Height="20">
+                    <Binding Path="MoveSpeed">
+                        <Binding.ValidationRules>
+                            <ExceptionValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <Label Content="hun/rev"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                <Label Content="下刀速度："/>
+                <TextBox Width="70" Height="20">
+                    <Binding Path="DownSpeed">
+                        <Binding.ValidationRules>
+                            <ExceptionValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <Label Content="mm/min"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                <Label Content="退刀速度："/>
+                <TextBox Width="70" Height="20">
+                    <Binding Path="UpSpeed">
+                        <Binding.ValidationRules>
+                            <ExceptionValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <Label Content="mm/min"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                <Label Content="冷却频率："/>
+                <TextBox Width="70" Height="20">
+                    <Binding Path="CoolFrequence">
+                        <Binding.ValidationRules>
+                            <ExceptionValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                <Label Content="cycle/min"></Label>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
